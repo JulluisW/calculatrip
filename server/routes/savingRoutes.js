@@ -9,5 +9,4 @@ savingRouter.get('/trip/:tripId', authentication,SavingController.getSavings)
 savingRouter.get('/:savingId', authentication ,SavingController.getSavingById)
 savingRouter.delete('/:savingId', authentication, savingAuthorization, SavingController.deleteSaving)
 
-
 module.exports = savingRouter
