@@ -38,22 +38,22 @@ class reportController {
       };
 
       let users = [
-        {
-          name: "Shyam",
-          age: "26",
-        },
-        {
-          name: "Navjot",
-          age: "26",
-        },
-        {
-          name: "Vitthal",
-          age: "26",
-        },
-      ];
+                {
+                  name: "Shyam",
+                  age: "11",
+                },
+                {
+                  name: "AA",
+                  age: "78",
+                },
+                {
+                  name: "BB",
+                  age: "22",
+                },
+              ]
 
       const { id } = req.params;
-      const trip= await Trip.findByPk(id, {
+      const trip = await Trip.findByPk(id, {
         include: [{
           model: User,
           attributes: {
@@ -62,13 +62,14 @@ class reportController {
         },{model:Expense}, {model:Saving}
       ],
       });
+
       console.log(typeof trip.dataValues);
       
       let document = {
         html: html,
         data: {
-          // users: users,
-          trip: trip.dataValues
+          users: users,
+          // trip: trip.dataValues
         },
         path: "./trip-report.pdf",
         type: "",

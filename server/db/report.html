@@ -5,14 +5,12 @@
     <title>Trip Report</title>
   </head>
   <body>
-    <h1>{{trip}}</h1>
-    
     <ul>
-      {{#each users}}
-      <li>Name: {{this.name}}</li>
-      <li>Age: {{this.age}}</li>
-      <br />
-      {{/each}}
+      {{#each trip}}
+      <li>{{trip.name}}</li>
+      <li>{{trip.age}}</li>
+      {{each}}
     </ul>
+    
   </body>
 </html>
