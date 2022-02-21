@@ -56,7 +56,12 @@ export default function TripForm({ type }) {
 
     const submitTrip = async () => {
       try {
-        let input = new FormData();
+        let formDataBody = new FormData();
+        input.append('name', name)
+        input.append('targetBudget', targetBudget)
+        input.append('homeCurrency', homeCurrency)
+        input.append('startDate', startDate)
+        input.append('endDate', endDate)
         input.append('imageFile', tripImage)
         const response = await axios({
           method: 'post',
@@ -64,14 +69,7 @@ export default function TripForm({ type }) {
           headers: {
             access_token: 'access_token'
           },
-          data: {
-            name,
-            targetBudget,
-            homeCurrency,
-            startDate,
-            endDate,
-            input
-          }
+          data: formDataBody
         })
         console.log(response.data)
       } catch (error) {

@@ -90,7 +90,7 @@ export default function Home({ navigation }) {
           </>
         )}
         <View style={homeStyle.addContainer}>
-          <TouchableOpacity style={{ alignSelf: 'flex-start' }}>
+          <TouchableOpacity onPress={()=> navigation.navigate('AddTrip')} style={{ alignSelf: 'flex-start' }}>
             <Text style={homeStyle.addButton}>+</Text>
           </TouchableOpacity>
         </View>
